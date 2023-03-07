@@ -30,8 +30,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -74,12 +72,29 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+     - family: Lobster
+       fonts:
+         - asset: assets/fonts/Lobster-Regular.ttf
+
+     - family: Oxygen
+       fonts:
+          - asset: assets/fonts/Oxygen-Bold.ttf
+          - asset: assets/fonts/Oxygen-Light.ttf
+  assets:
+    - assets/image/monumen-kapal-selam-surabaya-jawa-timur.jpg
+    - assets/image/30290f38d7d700024c3c1a07500bd0e4.jpg
+    - assets/image/sampoerna.jpg
+    - assets/image/pahlawan.jpg
+    - assets/image/klentengg.jpg
+    - assets/image/sby.jpg
+    - assets/image/1652858217_2.jpg
+    - assets/image/ok-730x470.jpg
+    - assets/image/museum-house-of-sampoerna.jpg
+    - assets/image/museum-sampoerna_20160903_222347.jpg
+    - assets/image/Bromo-Semeru-Batok-Widodaren.jpg
+    - assets/image/1.jpg
+    - assets/image/8437415341664213099.jpg
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

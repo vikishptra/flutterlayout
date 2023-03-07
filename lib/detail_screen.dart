@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterlayout/model/tourism_place.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key}) : super(key: key);
-
+  const DetailScreen({Key? key, required this.place}) : super(key: key);
+  final TourismPlace place;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,70 +11,84 @@ class DetailScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Container(
-              child: Image(
-                  image: NetworkImage(
-                      'https://ak-d.tripcdn.com/images/010192215d6djddio56F1_C_760_506.jpg?proc=source%2ftrip')),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0), // Set the border radius to clip the image
+                child: Image.asset(
+                 place.imageAsset,
+                  fit: BoxFit.cover, // Set the fit property to control how the image fills the container
+                ),
+              ),
             ),
             Container(
               margin: const EdgeInsets.only(top: 16.0),
-              child: const Text(
-                "Surabaya Submarine Monument",
+              child: Text(
+                place.name,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 30.0,
+                    fontFamily: 'Lobster'
+                ),
               ),
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 20.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Column(
                     children: <Widget>[
                       Icon(Icons.calendar_month),
-                      Text("Open Everday"),
+                      Text(place.hari),
                     ],
                   ),
                   Column(
                     children: <Widget>[
                       Icon(Icons.alarm),
-                      Text("08.00 - 15.00"),
+                      Text(place.jam),
                     ],
                   ),
                   Column(
                     children: <Widget>[
                       Icon(Icons.attach_money),
-                      Text("10.000,-"),
+                      Text(place.harga),
                     ],
                   )
                 ],
               ),
             ),
             Container(
-              child: const Text(
-                "The Submarine Monument, or abbreviated as Monkasel, is a submarine museum located in Embong Kaliasin, Genteng, Surabaya.Located in the city center, this monument is actually a KRI Pasopati 410 submarine, one of the Republic of Indonesia Navy fleets made by the Soviet Union in 1952.",
+              child: Text(
+                place.deskripsi,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16.0),
+                style: TextStyle(fontSize: 16.0, fontFamily: 'Oxygen'),
               ),
             ),
             Container(
               height: 150,
+              padding: EdgeInsets.only(top: 20.0),
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(4.0),
-                    child: Image.network(
-                        'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg'),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child:  Image.asset(place.foto1),
+                    )
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Image.network(
-                        'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg'),
+                      padding: const EdgeInsets.all(4.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Image.asset(place.foto2)
+                      )
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Image.network(
-                        'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg'),
+                      padding: const EdgeInsets.all(4.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Image.asset(place.foto3)
+                      )
                   ),
                 ],
               ),
