@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutterlayout/detail_screen.dart';
 import 'package:flutterlayout/list_item.dart';
 import 'package:flutterlayout/model/tourism_place.dart';
+import 'package:flutterlayout/provider/done_tourism_provider.dart';
+import 'package:provider/provider.dart';
 
 class TourismList extends StatefulWidget{
-    final List<TourismPlace> doneTourismPlaceList;
-
     const TourismList({
-      Key?key,
-      required this.doneTourismPlaceList}) : super(key: key);
+      Key?key}) : super(key: key);
 
     @override
-    _TourismListState createState() => _TourismListState(doneTourismPlaceList);
+    _TourismListState createState() => _TourismListState();
 }
 
 class _TourismListState extends State<TourismList>{
@@ -116,15 +115,15 @@ class _TourismListState extends State<TourismList>{
     ),
 
   ];
-  final List<TourismPlace> doneTourismPlaceList;
-
-  _TourismListState(this.doneTourismPlaceList);
 
   @override
   Widget build(BuildContext buildContext){
+    final List<TourismPlace> doneTourismPlaceList = Provider.of<DoneTourismProvider>(
+        context,
+        listen: false
+    ).doneTourismPlaceList;
     return ListView.builder(itemBuilder: (context, index){
         final TourismPlace place = tourismPlaceList[index];
-
         return InkWell(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context){
