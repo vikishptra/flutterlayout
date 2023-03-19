@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Contacts',
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
-      home: const MainScreen(),
+      home: MainScreen(),
     );
   }
 }
